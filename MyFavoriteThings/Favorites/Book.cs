@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MyFavoriteThings
+namespace MyFavoriteThings.Favorites
 {
     class Book
     {
@@ -16,23 +16,27 @@ namespace MyFavoriteThings
         private bool _wasBookClubPick;
 
         //constructor
-        public Book(string title, string author)
+        public Book(string title, string author, bool bookClubPick)
         {
             Title = title;
             Author = author;
+            _wasBookClubPick = bookClubPick;
             Console.WriteLine($"{title} got instantiated!!");
         }
 
         //methods
-        public void Published()
+        public void Published(string publicationYear, string location)
         {
-            if(PubYear != "")
+            PubYear = publicationYear;
+            Location = location;
+
+            if(publicationYear != "")
             {
-                Console.WriteLine($"{Title} was published in {PubYear}.");
+                Console.WriteLine($"{Title} was published in {PubYear} and it is set in {Location}.");
             }
             else
             {
-                Console.WriteLine($"We don't know when {Title} was published.");
+                Console.WriteLine($"We don't know when {Title} was published but we know it is set in {Location}.");
             }
         }
 
